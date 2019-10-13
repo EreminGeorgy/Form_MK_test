@@ -1,21 +1,21 @@
 'use strict';
 
-(function () {
-  var ESC_KEYCODE = 27;
-  var ENTER_KEYCODE = 13;
+(() => {
+  const ESC_KEYCODE = 27;
+  const ENTER_KEYCODE = 13;
 
   window.util = {
-    escEvent: function (evt, action) {
+    escEvent: (evt, action) => {
       if ((evt.keyCode === ESC_KEYCODE) && (document.activeElement !== window.userNameInput)) {
         action();
       }
     },
-    enterEvent: function (evt, action) {
+    enterEvent: (evt, action) => {
       if (evt.keyCode === ENTER_KEYCODE) {
         action();
       }
     },
-    getRandomInt: function (min, max) {
+    getRandomInt: (min, max) => {
       return Math.floor(Math.random() * (max - min)) + min;
     }
   };

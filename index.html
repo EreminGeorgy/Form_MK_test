@@ -14,79 +14,144 @@
   <body>
 
     <section class="main">
+      <h1 class="visually-hidden">Страница регистрации</h1>
       <button class="button button__regestration" type="button">Регистрация</button>
     </section>
 
     <section class="modal modal-login modal-show">
       <h2>Регистрация</h2>
       <form class="form" method="post">
-        <div class="form__field form__field--email">
-          <label for="e-mail">E-mail</label><br>
-          <input class="form__e-mail-input" id="e-mail" type="email" name="e-mail" required>
-          <p class="form__error form__error--email">
+        <div class="form__first-step">
+          <fieldset class="form__field form__field--email">
+            <label for="e-mail">E-mail</label><br>
+            <input class="form__e-mail-input" id="e-mail" type="email" name="e-mail" required>
+            <p class="form__error form__error--email">
+            </p>
+          </fieldset>
+          <fieldset class="form__field form__field--nickname">
+            <label for="nickname">Никнейм</label><br>
+            <input class="form__nickname-input" id="nickname" type="text" name="nickname" placeholder="frontendDeveloper" pattern="[a-zA-Z1-9_;]{1,}" minlength="3" maxlength="40" required>
+            <p class="form__error form__error--nickname"></p>
+          </fieldset>
+          <fieldset class="form__field form__field--password">
+            <label for="password">Пароль</label><br>
+            <input class="form__password-input" id="password" type="password" name="password" minlength="6" maxlength="32" required>
+          </fieldset>
+          <p class="form__login-help">Пароль должен содержать:
           </p>
+          <ul>
+            <li class="form__marker form__marker--neutral" id="symbolNumber">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g class="wrong">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00001 3.5858L7.79291 0.792908L9.20712 2.20712L6.41423 5.00001L9.20712 7.79291L7.79291 9.20712L5.00001 6.41423L2.20712 9.20712L0.792908 7.79291L3.5858 5.00001L0.792908 2.20712L2.20712 0.792908L5.00001 3.5858Z" fill="#9F2B11"/>
+                </g>
+                <g class="correct">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5293 1.13842L5.0293 7.63842C4.86051 7.88222 4.59224 8.03854 4.29691 8.06517C4.00159 8.0918 3.70967 7.98599 3.5 7.77632L0 4.27632L1.41421 2.8621L4.06695 5.51484L7.88491 0L9.5293 1.13842Z" fill="#007B1B"/>
+                </g>
+              </svg>от 6 до 32 символов
+            </li>
+            <li class="form__marker form__marker--neutral" id="digit">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g class="wrong">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00001 3.5858L7.79291 0.792908L9.20712 2.20712L6.41423 5.00001L9.20712 7.79291L7.79291 9.20712L5.00001 6.41423L2.20712 9.20712L0.792908 7.79291L3.5858 5.00001L0.792908 2.20712L2.20712 0.792908L5.00001 3.5858Z" fill="#9F2B11"/>
+                </g>
+                <g class="correct">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5293 1.13842L5.0293 7.63842C4.86051 7.88222 4.59224 8.03854 4.29691 8.06517C4.00159 8.0918 3.70967 7.98599 3.5 7.77632L0 4.27632L1.41421 2.8621L4.06695 5.51484L7.88491 0L9.5293 1.13842Z" fill="#007B1B"/>
+                </g>
+              </svg>цифру
+            </li>
+            <li class="form__marker form__marker--neutral" id="letters">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g class="wrong">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00001 3.5858L7.79291 0.792908L9.20712 2.20712L6.41423 5.00001L9.20712 7.79291L7.79291 9.20712L5.00001 6.41423L2.20712 9.20712L0.792908 7.79291L3.5858 5.00001L0.792908 2.20712L2.20712 0.792908L5.00001 3.5858Z" fill="#9F2B11"/>
+                </g>
+                <g class="correct">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5293 1.13842L5.0293 7.63842C4.86051 7.88222 4.59224 8.03854 4.29691 8.06517C4.00159 8.0918 3.70967 7.98599 3.5 7.77632L0 4.27632L1.41421 2.8621L4.06695 5.51484L7.88491 0L9.5293 1.13842Z" fill="#007B1B"/>
+                </g>
+              </svg>заглавную и строчную буквы
+            </li>
+          </ul>
+          <p class="form__error form__error--password"></p>
+          <fieldset class="form__field form__field--password-repeat">
+            <label for="password-repeat">Пароль ещё раз</label><br>
+            <input class="form__password-input" id="password-repeat" type="password" name="password-repeat" required>
+            <p class="form__error form__error--password-repeat"></p>
+          </fieldset>
+          <p class="form__agreement">
+            <label class="form__checkbox">
+              <input type="checkbox" class="visually-hidden" name="agreement" id="agreement" required>
+              <span class="checkbox-indicator"></span>
+              Я принимаю условия
+            </label>
+            <a class="form__agreement-link" href="#">Пользовательского соглашения</a>
+          </p>
+          <button class="button form__forward" type="button" disabled>Далее</button>
         </div>
-        <div class="form__field form__field--nickname">
-          <label for="nickname">Никнейм</label><br>
-          <input class="form__nickname-input" id="nickname" type="text" name="nickname" placeholder="frontendDeveloper" pattern="[a-zA-Z1-9_;]{1,}" minlength="3" maxlength="40" required>
-          <p class="form__error form__error--nickname"></p>
+        <div class="form__second-step visually-hidden">
+          <fieldset class="form__field form__select--sex">
+            <label for="sex">Пол</label><br>
+            <select class="form__sex-select" id="sex" name=sex">
+              <option selected disabled hidden style='display: none' value=''></option>
+              <option value="male">М</option>
+              <option value="female">Ж</option>
+            </select>
+          </fieldset>
+          <fieldset class="form__field form__select--education">
+            <label for="education">Образование</label><br>
+            <select class="form__education-select" id="education" name=education">
+              <option selected disabled hidden style='display: none' value=''></option>
+              <option value="unfinished-middle">незаконченное среднее</option>
+              <option value="middle">среднее</option>
+              <option value="unfinished-higher">незаконченное высшее</option>
+              <option value="higher">высшее</option>
+              <option value="academic degree">ученая степень</option>
+            </select>
+          </fieldset>
+          <fieldset class="form__field form__description">
+            <label for="description">Рассказать о себе</label><br>
+            <textarea class="form__textarea" id="description" name="description" placeholder="Расскажите нам о ваших интересах"></textarea>
+          </fieldset>
+          <fieldset class="form__field form__subscribe">
+            <legend>Выберите рубрики, на которые Вы хотите подписаться</legend><br>
+            <ul class="form__checkbox-group">
+              <li>
+                <label class="form__checkbox group-checkbox">
+                  <input type="checkbox" class="visually-hidden" name="news" id="news">
+                  <span class="checkbox-indicator"></span>
+                  Новости
+                </label>
+              </li>
+              <li>
+                <label class="form__checkbox group-checkbox">
+                  <input type="checkbox" class="visually-hidden" name="politics" id="politics" >
+                  <span class="checkbox-indicator"></span>
+                  Политика
+                </label>
+              </li>
+              <li>
+                <label class="form__checkbox group-checkbox">
+                  <input type="checkbox" class="visually-hidden" name="economy" id="economy" >
+                  <span class="checkbox-indicator"></span>
+                  Экономика
+                </label>
+              </li>
+              <li>
+                <label class="form__checkbox group-checkbox">
+                  <input type="checkbox" class="visually-hidden" name="incidents" id="incidents" >
+                  <span class="checkbox-indicator"></span>
+                  Происшествия
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+
+          <button class="button submit" type="submit">Зарегистрироваться</button>
         </div>
-        <div class="form__field form__field--password">
-          <label for="password">Пароль</label><br>
-          <input class="form__password-input" id="password" type="password" name="password" minlength="6" maxlength="32" required>
-        </div>
-        <p class="form__login-help">Пароль должен содержать:
-        </p>
-        <ul>
-          <li class="form__field-status--neutral" id="symbolNumber">
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g class="wrong">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00001 3.5858L7.79291 0.792908L9.20712 2.20712L6.41423 5.00001L9.20712 7.79291L7.79291 9.20712L5.00001 6.41423L2.20712 9.20712L0.792908 7.79291L3.5858 5.00001L0.792908 2.20712L2.20712 0.792908L5.00001 3.5858Z" fill="#9F2B11"/>
-              </g>
-              <g class="correct">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5293 1.13842L5.0293 7.63842C4.86051 7.88222 4.59224 8.03854 4.29691 8.06517C4.00159 8.0918 3.70967 7.98599 3.5 7.77632L0 4.27632L1.41421 2.8621L4.06695 5.51484L7.88491 0L9.5293 1.13842Z" fill="#007B1B"/>
-              </g>
-            </svg>от 6 до 32 символов
-          </li>
-          <li class="form__field-status--neutral" id="digit">
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g class="wrong">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00001 3.5858L7.79291 0.792908L9.20712 2.20712L6.41423 5.00001L9.20712 7.79291L7.79291 9.20712L5.00001 6.41423L2.20712 9.20712L0.792908 7.79291L3.5858 5.00001L0.792908 2.20712L2.20712 0.792908L5.00001 3.5858Z" fill="#9F2B11"/>
-              </g>
-              <g class="correct">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5293 1.13842L5.0293 7.63842C4.86051 7.88222 4.59224 8.03854 4.29691 8.06517C4.00159 8.0918 3.70967 7.98599 3.5 7.77632L0 4.27632L1.41421 2.8621L4.06695 5.51484L7.88491 0L9.5293 1.13842Z" fill="#007B1B"/>
-              </g>
-            </svg>цифру
-          </li>
-          <li class="form__field-status--neutral" id="letters">
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g class="wrong">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00001 3.5858L7.79291 0.792908L9.20712 2.20712L6.41423 5.00001L9.20712 7.79291L7.79291 9.20712L5.00001 6.41423L2.20712 9.20712L0.792908 7.79291L3.5858 5.00001L0.792908 2.20712L2.20712 0.792908L5.00001 3.5858Z" fill="#9F2B11"/>
-              </g>
-              <g class="correct">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5293 1.13842L5.0293 7.63842C4.86051 7.88222 4.59224 8.03854 4.29691 8.06517C4.00159 8.0918 3.70967 7.98599 3.5 7.77632L0 4.27632L1.41421 2.8621L4.06695 5.51484L7.88491 0L9.5293 1.13842Z" fill="#007B1B"/>
-              </g>
-            </svg>заглавную и строчную буквы
-          </li>
-        </ul>
-        <p class="form__error form__error--password"></p>
-        <div class="form__field form__field--password-repeat">
-          <label for="password-repeat">Пароль ещё раз</label><br>
-          <input class="form__password-input" id="password-repeat" type="password" name="password-repeat" required>
-          <p class="form__error form__error--password-repeat"></p>
-        </div>
-        <p class="form__agreement">
-          <label class="form__checkbox">
-            <input type="checkbox" class="visually-hidden" name="agreement" id="agreement" required>
-            <span class="checkbox-indicator"></span>
-            Я принимаю условия
-          </label>
-          <a class="form__agreement-link" href="#">Пользовательского соглашения</a>
-        </p>
-        <button class="button submit" type="submit" disabled>Зарегистрироваться</button>
       </form>
       <button class="modal-close" type="button">Закрыть</button>
     </section>
+
+
 
     <script src="js/util.js"></script>
     <script src="js/popup.js"></script>

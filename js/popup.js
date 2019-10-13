@@ -1,51 +1,47 @@
 'use strict';
 
-(function() {
+(() => {
 
-  var buttonOpen = document.querySelector('.button__regestration');
-  var buttonClose = document.querySelector('.modal-close');
-  var popup = document.querySelector('.modal');
-  var form = document.querySelector('.form');
-  var passwordCheck = document.querySelectorAll('li');
-
-  var isStorageSupport = true;
-  var storage = '';
+  const buttonOpen = document.querySelector('.button__regestration');
+  const buttonClose = document.querySelector('.modal-close');
+  const popup = document.querySelector('.modal');
+  const form = document.querySelector('.form');
+  const passwordCheck = document.querySelectorAll('.form__marker');
 
   popup.classList.remove('modal-show');
 
-  var onPopupEscPress = function(evt) {
+  const onPopupEscPress = (evt) => {
     window.util.escEvent(evt, closePopup);
   };
 
-  var openPopup = function() {
+  const openPopup = () => {
     popup.classList.add('modal-show');
     document.addEventListener('keydown', onPopupEscPress);
   };
 
-  window.closePopup = function() {
+  window.closePopup = () => {
     popup.classList.remove('modal-show');
     document.removeEventListener('keydown', onPopupEscPress);
-    console.log(passwordCheck);
     passwordCheck.forEach(function (elem) {
       elem.className = '';
-      elem.classList.add('form__field-status--neutral');
+      elem.classList.add('form__marker--neutral');
     });
     form.reset();
   };
 
-  buttonOpen.addEventListener('click', function() {
+  buttonOpen.addEventListener('click', () => {
     openPopup();
   });
 
-  buttonOpen.addEventListener('keydown', function(evt) {
+  buttonOpen.addEventListener('keydown', (evt) => {
     window.util.enterEvent(evt, openPopup);
   });
 
-  buttonClose.addEventListener('click', function() {
+  buttonClose.addEventListener('click', () => {
     closePopup();
   });
 
-  buttonClose.addEventListener('keydown', function(evt) {
+  buttonClose.addEventListener('keydown', (evt) => {
     window.util.enterEvent(evt, closePopup);
   });
 
